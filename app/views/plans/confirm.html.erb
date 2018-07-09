@@ -1,0 +1,23 @@
+<h3>CONFIRM new Teaching Plan</h3>
+<h4>Is it ok?</h4>
+
+<%= form_with(model: @plan, local: true) do |form| %>
+  <%= form.hidden_field :date %>
+  <%= form.hidden_field :string %>
+  <%= form.hidden_field :string %>
+  <%= form.hidden_field :textt %>
+<div class ="confirm_plan">  
+  <h4>lesson_date: <%= @plan.date %></h4>
+  <h4>goal: <%= @plan.string %></h4>
+  <h4>item: <%= @plan.string %></h4>
+  <h4>content :<%= @plan.text %></h4>
+  <%= form.submit 'POST' %>
+<% end %>
+<%= form_with(model: @plan, url: new_plan_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :date %>
+  <%= form.hidden_field :string %>
+  <%= form.hidden_field :date %>
+  <%= form.hidden_field :string %>
+  <%= form.submit 'back' %>
+<% end %>
+</div>  

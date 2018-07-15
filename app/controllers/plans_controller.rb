@@ -1,18 +1,22 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [ :destroy]
-  # 暫定的にコメントアウト:show, :edit, :update,
+  # before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  
   def top
   end
   
   def index
+    @plans = current_user.plans.all
     @plans = Plan.all
+    @plans = Plan.search(params[:search])
+    # @plan = Plam.find(params[:user_id])
+    # @plans_of_user = @plan.id 
   end
   
   def new
-    # @plan = current_user.plan.build
+    # @plan = current_user.plan.news.build
     if params[:back]  
-      @plan = Plan.new(plan_params)
+      @plan = Plan.new
     else 
       @plan = Plan.new
     end
@@ -21,20 +25,50 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
-    render 'new'  
+      if @plan.save
+      redirect_to plans_path, notice: "教案作成しました！"
+    # @plans = current_user.plan.build(plan_params)
+    # @plans.user_id = @plan.id
+    # @plans.saved
+
+      else
+      render 'new'  
+      end
   end
   
   def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.pdf do
+        # 詳細画面のHTMLを取得
+        html = render_to_string template: "plans/show"
+
+        # PDFKitを作成
+        pdf = PDFKit.new(html, encoding: "UTF-8")
+
+        pdf.stylesheets << "#{Rails.root}/app/assets/stylesheets/plans.scss"
+        pdf.stylesheets << "#{Rails.root}/app/assets/stylesheets/bootstrap.min.css"
+        
+        # 画面にPDFを表示する
+        # to_pdfメソッドでPDFファイルに変換する
+        # 他には、to_fileメソッドでPDFファイルを作成できる
+        # disposition: "inline" によりPDFはダウンロードではなく画面に表示される
+        send_data pdf.to_pdf,
+          filename:    "#{@plan.id}.pdf",
+          type:        "application/pdf",
+          disposition: "inline"
+      end
+    end
   end
-  
+
   def edit
   end
   
-  def updated
+  def update
     if @plan.update(plan_params)
-        redirect_to plans_path, notice:"更新しました。"
+       redirect_to plans_path, notice:"更新しました。"
     else
-      render 'new'
+     render 'new'
     end
   end
   
@@ -46,16 +80,18 @@ class PlansController < ApplicationController
   def confirm
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
-    render 'new' if @plan.invalid?  
+    render :new  if @plan.invalid?  
 
   end
   
   private
   def plan_params
+    # params[:plan]
     params.require(:plan).permit(:lessondate, :goal, :item, :content, :comment)
   end
   
   def set_plan
+    # @plan = current_user.plans.find(params[:id])
     @plan = Plan.find(params[:id])
   end
 

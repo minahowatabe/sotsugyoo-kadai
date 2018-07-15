@@ -62,4 +62,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'pdfkit'       # wkhtmtopdfのラッパー
 gem 'wkhtmltopdf'  # HTMLをPDFに変換するツール
+gem 'wkhtmltopdf-binary'
+# gem 'wicked_pdf'
 gem 'devise'
+gem 'rails-i18n'

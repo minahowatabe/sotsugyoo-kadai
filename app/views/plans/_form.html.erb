@@ -10,28 +10,56 @@
       </ul>
     </div>
   <% end %>
+<br>  
+  <div class = "container">
+    <table class="table">
+    <tr>
+      <th>LessonDate</th>
+      <td><%= form.date_field :lessondate %></td>
+    </tr>
+    <tr>
+      <th>Item</th>
+      <td><%= form.text_field :item, :size=>"45x3" %></td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td><%= form.text_area :goal, :size=>"50x3" %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td><%= form.text_area :content, :size=>"60x20" %></td>
+    </tr>
+  </table>
+  <div class = "linkbtn">
+   <%= form.submit 'CREATE', class: 'btn btn-primary' %>
+  </div>
+ </div>
+  <% end %>
+  <br>
+  
+  
+<!--  <div class="plan_post">-->
+<!--    <%#= form.label :lessondate %>-->
+<!--    <%#= form.date_field :lessondate %>-->
+<!--  </div>-->
+<!--  <br>-->
+<!--  <div class="plan_post">-->
+<!--    <%#= form.label :goal %>-->
+<!--    <%#= form.text_field :goal, :size=>"100*60"%>-->
+<!--  </div>-->
+<!--  <br>-->
+<!--  <div class="plan_post">-->
+<!--    <%#= form.label :item %>-->
+<!--    <%#= form.text_field :item %>-->
+<!--  </div>-->
+<!--  <div class="plan_post">-->
+<!--    <%#= form.label :content %>-->
+<!--    <%#= form.text_field  :content, :size=>"100*800"%>-->
+<!--  </div>-->
+<!--  <%#= form.submit :class=>"btn" %>-->
+<!--<%# end %>-->
+<!--<br>-->
 
-  <div class="plan_post">
-    <%= form.label :lesson_date %>
-    <%= form.date_field :date %>
-  </div>
-  <br>
-  <div class="plan_post">
-    <%= form.label :goal %>
-    <%= form.text_field :string, :size=>"50*20"%>
-  </div>
-  <br>
-  <div class="plan_post">
-    <%= form.label :item %>
-    <%= form.text_field :string %>
-  </div>
-  <br>
-  <div class="plan_post">
-    <%= form.label :content %>
-    <%= form.text_field :content, :size=>"50*20"%>
-  </div>
-  <%= form.submit :class=>"btn" %>
-<% end %>
-<br>
-
-<%= link_to "Back to teaching plans", plans_path, class: "btn btn-primary" %>
+<div class ="linkbtn">
+ <%= link_to "Back to teaching plans", plans_path, class: "btn btn-primary" %>
+</div>

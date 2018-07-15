@@ -1,0 +1,37 @@
+<h1 class="lists_title container-fluid">Teaching Plan Lists</h1>
+
+<p class = "notice"></p>
+
+<div class="container">
+ <div class="row">
+   <% if @user_id = current_user.id %>
+     <% @plans.each do |plan| %>
+       <div class="plan-panel col-md-6">
+         <h2><%= plan.lessondate %></h2>
+         <h2><%= plan.goal %></h2>
+         <h2><%= plan.item %></h2>
+         <h2><%= plan.content %></h2>
+     
+       <%# if photo.user_id == current_user.id %>
+          <div class="plan-links">
+            <%= link_to 'Show', plan, class: 'btn btn-success' %>
+            <%= link_to 'Edit', edit_plan_path(plan), class: 'btn btn-info' %> |
+            <%= link_to 'Delete', plan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          　<%= link_to 'Portfolio', plan, class: 'btn btn-basic' %>
+          </div>
+       <%# else %>
+       <!--     <div class="photo-links">-->
+              <%#= link_to 'Show', photo, class: 'btn btn-default' %>
+       <!--     </div>-->
+       <%# end%>
+       </div>
+     <% end%>
+   <% end%>
+ </div>
+</div>   
+<br>
+
+<div>
+<%= link_to 'CREATE new Teaching Plan', new_plan_path, class: "btn btn-primary" %>
+</div>
+

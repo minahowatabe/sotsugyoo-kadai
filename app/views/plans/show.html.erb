@@ -1,30 +1,56 @@
-<h1 class="lists_title container-fluid">Teaching Plan</h1>
-
-<article>
-  
- <div class="shows">
-  <div class = "row">
-
-   <div class="imageup col-md-11">
-    <ul class="row">
-      <li class="col-offset-md-1 col-md-5">LessonDate: <%= @photo.date %></li>
-      <li class="col-md-6" >Goal: <%= @plan.goal %></li>
-      <li class="col-offset-md-1 col-md-5">Item: <%= @plan.item %></li>
-      <li class="col-md-6" >Content: <%= @plan.content %></li>
-    </ul>
-   </div>
-  </div>
- </div>
-</article>
-
-<% unless @photo.user == current_user %>
-  <% if @favorite.present? %>
-    <%= link_to 'DELETE from my favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'ADD my favorite', favorites_path(photo_id: @photo.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
-
 <br>
+<h1 class="lists_title container-fluid titles">Teaching Plan</h1>
 
-<%= link_to "Back to photo Lists", photos_path, class: "btn btn-primary" %>
+   <div class = "container">
+    <table class="table">
+    <tr>
+      <th>LessonDate</th>
+      <td><%= @plan.lessondate %></td>
+    </tr>
+    <tr>
+      <th>Item</th>
+      <td><%= simple_format(@plan.item) %></td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td><%= simple_format(@plan.goal) %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td class = "contentfield"><%= simple_format(@plan.content) %></td>
+    </tr>
+  </table>
+ 
+<div class ="linkbtn">
+<%= link_to "PDFで表示",
+              plan_path(@plan, format: "pdf"),
+              :class => 'btn btn-warning btn-lg' %>
+</div>
+<br>
+<div class ="linkbtn">
+<%= link_to "事後コメントを残す",
+              edit_plan_path,
+              :class => 'btn btn-info btn-lg' %>
+</div>
+<br>
+<div class ="linkbtn">
+<%= link_to "Back to plan Lists", plans_path, class: "btn btn-primary" %>
+</div>
+
+
+ <!--テーブルにする-->
+ <!--コメント欄を下につける-->
+<!-- <div class="shows">-->
+<!--  <div class = "row">-->
+
+<!--   <div class="col-md-11">-->
+<!--    <ul class="row">-->
+<!--      <li class="col-offset-md-1 col-md-5">LessonDate: <%#= @plan.lessondate %></li>-->
+<!--      <li class="col-md-6" >Goal: <%#= @plan.goal %></li>-->
+<!--      <li class="col-offset-md-1 col-md-5">Item: <%#= @plan.item %></li>-->
+<!--      <li class="col-md-6" >Content: <%#= @plan.content %></li>-->
+<!--    </ul>-->
+<!--   </div>-->
+<!--  </div>-->
+<!-- </div>-->
+<!--</article>-->

@@ -1,23 +1,48 @@
-<h3>CONFIRM new Teaching Plan</h3>
-<h4>Is it ok?</h4>
+<h3 class="titles">CONFIRM new Teaching Plan</h3>
+<br>
+<%= form_with(model: @plan, url: plans_path, local: true) do |form| %>
+  <%= form.hidden_field :lessondate %>
+  <%= form.hidden_field :goal %>
+  <%= form.hidden_field :item %>
+  <%= form.hidden_field :content %>
+  
+  
+<div class = "container">
+    <table class="table">
+    <tr>
+      <th>LessonDate</th>
+      <td><%= @plan.lessondate %></td>
+    </tr>
+    <tr>
+      <th>Item</th>
+      <td><%= @plan.item  %></td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td><%= @plan.goal %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td class = "contentfield"><%= @plan.content %></td>
+    </tr>
+  </table>
+   <div class ="linkbtn">
+    <%= form.submit 'SAVE', class: 'btn btn-primary' %>
+   </div>
+<% end %>
 
-<%= form_with(model: @plan, local: true) do |form| %>
-  <%= form.hidden_field :date %>
-  <%= form.hidden_field :string %>
-  <%= form.hidden_field :string %>
-  <%= form.hidden_field :textt %>
-<div class ="confirm_plan">  
-  <h4>lesson_date: <%= @plan.date %></h4>
-  <h4>goal: <%= @plan.string %></h4>
-  <h4>item: <%= @plan.string %></h4>
-  <h4>content :<%= @plan.text %></h4>
-  <%= form.submit 'POST' %>
-<% end %>
 <%= form_with(model: @plan, url: new_plan_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :date %>
-  <%= form.hidden_field :string %>
-  <%= form.hidden_field :date %>
-  <%= form.hidden_field :string %>
-  <%= form.submit 'back' %>
+  <%= form.hidden_field :lessondate %>
+  <%= form.hidden_field :goal %>
+  <%= form.hidden_field :item %>
+  <%= form.hidden_field :content %>
+ 
+ <div class ="linkbtn">
+   <%= form.submit 'back', class: 'btn btn-primary' %>
+ </div>
+</div>
 <% end %>
-</div>  
+ 
+ 
+ 
+ 

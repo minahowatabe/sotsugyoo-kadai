@@ -1,0 +1,19 @@
+<!--# app/views/plans/show.pdf.erb-->
+<%- model_class = Plan -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Lesson Date:</strong></dt>
+  <dd><%= @plan.lessondate %></dd>
+  
+  <dt><strong>Item:</strong></dt>
+  <dd><%= @plan.item %></dd>
+  
+  <dt><strong>Goal:</strong></dt>
+  <dd><%= @plan.goal %></dd>
+  
+  <dt><strong>Content:</strong></dt>
+  <dd><%= @plan.content %></dd>
+</dl>

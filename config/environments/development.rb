@@ -30,7 +30,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'ide.c9.io/minahowatabe/teachingport'}
+  config.action_mailer.default_url_options = { host: 'https://teachingport-minahowatabe.c9users.io/?_c9_id=livepreview0&_c9_host=https://ide.c9.io'}
   config.action_mailer.delivery_method = :letter_opener
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

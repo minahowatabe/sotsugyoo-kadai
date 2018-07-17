@@ -35,13 +35,14 @@
 <br>
 
 <%# unless @plan.user_id == current_user.id %>
+<div class ="linkbtn">
   <% if @favorite.present? %>
     <%= link_to 'DELETE Portfolio', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger btn-xs' %>
   <% else %>
-    <%= link_to 'ADD Portfolio', favorites_path(plan_id: @plan.id), method: :post, class: 'btn btn-primary btn-xs' %>
+    <%= link_to 'ADD Portfolio', favorites_path(plan_id: @plan.id), method: :post, class: 'btn btn-basic btn-xs' %>
   <% end %>
 <%# end %>
-
+</div>
 <div class ="linkbtn">
 <%= link_to "Back to plan Lists", plans_path, class: "btn btn-primary" %>
 </div>

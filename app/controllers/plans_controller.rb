@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index,:new, :show, :edit, :update, :destroy]
   
   def top
   end
@@ -30,10 +30,14 @@ class PlansController < ApplicationController
     # @plans = current_user.plan.build(plan_params)
     # @plans.user_id = @plan.id
     # @plans.saved
-
+    
       else
       render 'new'  
       end
+    
+    # favorite = current_user.favorites.create(plan_id: params[:plan_id])
+    # redirect_to plans_url, notice: "教案をポートフォリオに登録しました！"
+
   end
   
   def show
@@ -59,6 +63,8 @@ class PlansController < ApplicationController
           disposition: "inline"
       end
     end
+    
+    @favorite = current_user.favorites.find_by(plan_id: @plan.id)  
   end
 
   def edit
@@ -75,6 +81,9 @@ class PlansController < ApplicationController
   def destroy
     @plan.destroy
     redirect_to plans_path, notice:"削除しました。"   
+    
+    # favorite = current_user.favorites.find_by(id: params[:id]).destroy
+    # redirect_to plans_url, notice: "教案をポートフォリオから解除しました"
   end
   
   def confirm

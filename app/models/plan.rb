@@ -1,6 +1,6 @@
 class Plan < ApplicationRecord
   validates :lessondate, presence: true
-  validates :goal, presence: true, length:{in:1..50}
+  validates :goal, presence: true, length:{in:1..100}
   validates :item, presence: true
   validates :content, presence: true
   belongs_to :user

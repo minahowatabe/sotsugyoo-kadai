@@ -7,5 +7,6 @@ class User < ApplicationRecord
 
   has_many :plans, dependent: :destroy 
   has_many :favorites, dependent: :destroy
+  has_many :favorite_plans, through: :favorites, source: :plan
   
 end

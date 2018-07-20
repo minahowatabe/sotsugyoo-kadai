@@ -58,7 +58,11 @@
         <h3 class="mb-5">
           <em>A space stock your TeachingPlan & sharing Portforio</em>
         </h3>
-        <a class="js-scroll-trigger"><%= link_to 'START', new_user_session_path, class: "btn btn-primary" %></a>
+         <% if user_signed_in? %> 
+        <a class="js-scroll-trigger"><%= link_to 'START', plans_path, class: "btn btn-primary" %></a>
+        <% else %>
+         <a class="js-scroll-trigger"><%= link_to 'START', new_user_session_path, class: "btn btn-primary" %></a>
+        <% end %>
       </div>
       <div class="overlay"></div>
     </header>

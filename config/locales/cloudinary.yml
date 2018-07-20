@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hogmgyqqf
+  api_key: '818567384921126'
+  api_secret: ReetsN2sWSG-BHRFsFW0ZNgoFHw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hogmgyqqf
+  api_key: '818567384921126'
+  api_secret: ReetsN2sWSG-BHRFsFW0ZNgoFHw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hogmgyqqf
+  api_key: '818567384921126'
+  api_secret: ReetsN2sWSG-BHRFsFW0ZNgoFHw
+  enhance_image_tag: true
+  static_image_support: false

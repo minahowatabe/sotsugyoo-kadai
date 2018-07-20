@@ -15,7 +15,7 @@
 
 <div class="table-responsive">
  <table class="table table-striped">
-   <% if @user_id = current_user.id %>
+   <% if user_id = current_user.id %>
    <% @favorites_plans.each do |plan| %>
        <thead>
          <tr>

@@ -26,9 +26,6 @@ class PlansController < ApplicationController
     @plan.user_id = current_user.id
       if @plan.save
       redirect_to plans_path, notice: "教案作成しました！"
-    # @plans = current_user.plan.build(plan_params)
-    # @plans.user_id = @plan.id
-    # @plans.saved
     
       else
       render 'new'  

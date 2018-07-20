@@ -9,7 +9,7 @@ class FavoritesController < ApplicationController
         html = render_to_string template: "favorites/index"
 
         # PDFKitを作成
-        pdf = PDFKit.new(html, encoding: "UTF-8")
+        pdf = PDFKit.new(html, encoding: "UTF-8"
 
         pdf.stylesheets << "#{Rails.root}/app/assets/stylesheets/plans.scss"
         pdf.stylesheets << "#{Rails.root}/app/assets/stylesheets/bootstrap.min.css"

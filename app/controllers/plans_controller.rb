@@ -89,7 +89,7 @@ class PlansController < ApplicationController
   private
   def plan_params
     # params[:plan]
-    params.require(:plan).permit(:lessondate, :goal, :item, :content, :comment)
+    params.require(:plan).permit(:lessondate, :goal, :item, :content, :image, :image_cache)
   end
   
   def set_plan

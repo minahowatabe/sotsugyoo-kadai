@@ -5,7 +5,7 @@
   <%= form.hidden_field :goal %>
   <%= form.hidden_field :item %>
   <%= form.hidden_field :content %>
-  
+  <%= form.hidden_field :image_cache %>
   
 <div class = "container">
     <table class="table">
@@ -25,6 +25,10 @@
       <th>Content</th>
       <td class = "contentfield"><%= simple_format(@plan.content) %></td>
     </tr>
+    <tr>
+      <th>Image</th>
+      <td><%= image_tag(@plan.image) %></td>
+    </tr>
   </table>
    <div class ="linkbtn">
     <%= form.submit 'SAVE', class: 'btn btn-primary' %>
@@ -36,6 +40,7 @@
   <%= form.hidden_field :goal %>
   <%= form.hidden_field :item %>
   <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
  
  <div class ="linkbtn">
    <%= form.submit 'back', class: 'btn btn-primary' %>

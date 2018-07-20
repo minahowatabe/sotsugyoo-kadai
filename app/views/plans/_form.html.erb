@@ -29,6 +29,11 @@
       <th>Content</th>
       <td><%= form.text_area :content, :size=>"60x20" %></td>
     </tr>
+    <tr>
+      <th>Image</th>
+      <td><%= image_tag(@plan.image.url) if @plan.image.url %>
+          <%= form.file_field :image, id: :plan_image, :size=>"15x15" %></td>
+    </tr>
   </table>
   <div class = "linkbtn">
    <%= form.submit 'CREATE', class: 'btn btn-primary' %>

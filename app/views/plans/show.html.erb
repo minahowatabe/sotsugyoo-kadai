@@ -22,13 +22,13 @@
   </table>
  
 <div class ="linkbtn">
-<%= link_to "PDFで表示",
+<%= link_to "PDF",
               plan_path(@plan, format: "pdf"),
               :class => 'btn btn-warning btn-lg' %>
 </div>
 <br>
 <div class ="linkbtn">
-<%= link_to "事後コメントを残す",
+<%= link_to "add AFTER comment",
               edit_plan_path,
               :class => 'btn btn-info btn-lg' %>
 </div>
@@ -43,6 +43,7 @@
   <% end %>
 <%# end %>
 </div>
+<br>
 <div class ="linkbtn">
 <%= link_to "Back to plan Lists", plans_path, class: "btn btn-primary" %>
 </div>

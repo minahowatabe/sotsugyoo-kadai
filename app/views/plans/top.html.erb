@@ -74,15 +74,15 @@
         <div class="row">
           <div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
             <!--条件分岐 ログインしてたら、plans/newへ してなかったら、user/sign_inへ-->
-            <%# if plan.user_id == current_user.id %>
-              <a class="service-icon rounded-circle mx-auto mb-3" href="plans/">
+            <% if user_signed_in? %>  
+              <a class="service-icon rounded-circle mx-auto mb-3" href="/plans/">
                 <i class="icon-pencil"></i>
               </a>
-            <%# else %>
+            <% else %>
               <a class="service-icon rounded-circle mx-auto mb-3" href="users/sign_in">
                 <i class="icon-pencil"></i>
               </a>  
-            <%# end%>
+            <% end%>
               <h4>
                 <strong>TeachingPlan</strong>
               </h4>

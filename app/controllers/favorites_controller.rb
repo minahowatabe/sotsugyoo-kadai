@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def index
-    @favorite = current_user.favorites.find_by(plan_id: @plan.id)
+    @favorites_plans = current_user.favorite_plans
   end
 
   def create

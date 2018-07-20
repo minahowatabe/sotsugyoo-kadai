@@ -14,7 +14,6 @@
 <!--</div>-->
 
 <div class="table-responsive">
-  <!-- テーブルにクラスを追加 -->
  <table class="table table-striped">
    <% if @user_id = current_user.id %>
    <% @favorites_plans.each do |plan| %>
@@ -32,9 +31,6 @@
           <td><%= plan.lessondate %></td>
           <td><%= plan.item %></td>
           <td><%= link_to 'Show', plan, class: 'btn btn-success btn-sm' %></td>
-          <!--<td><%#= link_to 'Edit', edit_plan_path(plan), class: 'btn btn-info btn-sm' %></td>-->
-          <!--<td><%#= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>-->
-          <!--<td><%#= link_to 'Portfolio', plan, class: 'btn btn-basic btn-sm' %></td>-->
         </tr>
        <% end %>
        </tbody>

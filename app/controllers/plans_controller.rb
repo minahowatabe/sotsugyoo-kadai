@@ -7,10 +7,9 @@ class PlansController < ApplicationController
   
   def index
     @plans = current_user.plans.all
-    @plans = Plan.all
-    @plans = Plan.search(params[:search])
-    # @plan = Plam.find(params[:user_id])
-    # @plans_of_user = @plan.id 
+    # binding.pry
+    @plans = @plans.search(params[:search])
+   
   end
   
   def new
@@ -35,9 +34,6 @@ class PlansController < ApplicationController
       render 'new'  
       end
     
-    # favorite = current_user.favorites.create(plan_id: params[:plan_id])
-    # redirect_to plans_url, notice: "教案をポートフォリオに登録しました！"
-
   end
   
   def show

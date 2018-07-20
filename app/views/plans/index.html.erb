@@ -3,15 +3,15 @@
 <%= form_tag plans_path, :method => 'get' do %>
   <p class = "searchbox">
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search",:name => nil %>
+    <%= submit_tag "Item Search",:name => nil %>
   </p>
 <% end %>
 
 <p class = "notice"></p>
 
-<!-- レスポンシブ対応のために div を追加 -->
+<%# if user_id == current_user.id %>
+<%# binding.pry %>
 <div class="table-responsive">
-  <!-- テーブルにクラスを追加 -->
   <table class="table table-striped">
     <thead>
       <tr>
@@ -35,6 +35,7 @@
     </tbody>
   </table>
 </div>
+<%# end %>
 
 <div class = "linkbtn">
 <%= link_to 'CREATE new Teaching Plan', new_plan_path, class: "btn btn-primary" %>

@@ -15,11 +15,11 @@
     </tr>
     <tr>
       <th>Item</th>
-      <td><%= @plan.item  %></td>
+      <td><%= simple_format(@plan.item) %></td>
     </tr>
     <tr>
       <th>Goal</th>
-      <td><%= @plan.goal %></td>
+      <td><%=  simple_format(@plan.goal) %></td>
     </tr>
     <tr>
       <th>Content</th>

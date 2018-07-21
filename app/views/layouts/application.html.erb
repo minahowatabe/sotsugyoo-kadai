@@ -6,19 +6,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="cb-materialbtn.min.css">
+    
   </head>
 
   <body>
     
     <% if user_signed_in? %>
-      <%= link_to " CREATE ", new_plan_path, class: 'btn btn-warning btn-lg' %>
-      <%= link_to " LOG OUT ", destroy_user_session_path, method: :delete, class: 'btn btn-default btn-lg'%>
-      <%= link_to " PLAN LISTS ", plans_path, class: 'btn btn-info btn-lg'%>
-      <%= link_to "TOP", root_path, class: 'btn btn-link btn-xs' %>
+      <%= link_to " CREATE ", new_plan_path, class: 'btn btn-cyan300_flt btn-lg btnsizea' %>
+      <%= link_to " LOG OUT ", destroy_user_session_path, method: :delete, class: 'btn btn-amber100_ftg btn-lg btnsizeb'%>
+      <%= link_to " PLAN LISTS ", plans_path, class: 'btn btn-blue50_rsd btn-lg btnsizec'%>
+      <%= link_to "TOP", root_path, class: 'btn btn-biuegray200_flt btn-lg btnsizeb' %>
     <% else %>
-      <%= link_to "SIGN UP", new_user_registration_path, class: 'btn btn-basic btn-lg' %>
-      <%= link_to "LOG IN", new_user_session_path, class: 'btn btn-default btn-lg' %>
-      <%= link_to "TOP", root_path, class: 'btn btn-link btn-xs' %>
+      <%= link_to "SIGN UP", new_user_registration_path, class: 'btn btn-lightgreen100_ftg btn-lg btnsizec' %>
+      <%= link_to "LOG IN", new_user_session_path, class: 'btn btn-amber200_ftg btn-lg btnsizeb' %>
+      <%= link_to "TOP", root_path, class: 'btn btn-biuegray200_flt btn-lg btnsizeb' %>
     <% end %>
     
    <br>

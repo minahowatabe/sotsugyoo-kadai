@@ -14,3 +14,11 @@
  *= require_tree .
  *= require_self
  */
+
+.ft{
+    color:lightgray;
+}
+.thinline{
+    width: 100%;
+    height:50px;
+}

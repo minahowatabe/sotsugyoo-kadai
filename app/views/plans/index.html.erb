@@ -26,10 +26,9 @@
         <tr>
           <td><%= plan.lessondate %></td>
           <td><%= plan.item %></td>
-          <td><%= link_to 'Show', plan, class: 'btn btn-success btn-sm' %></td>
-          <td><%= link_to 'Edit', edit_plan_path(plan), class: 'btn btn-info btn-sm' %></td>
-          <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
-          <td><%= link_to 'Portfolio', favorites_path, class: 'btn btn-basic btn-sm' %></td>
+          <td><%= link_to 'Show', plan, class: 'btn btn-success btn-lg' %></td>
+          <td><%= link_to 'Edit', edit_plan_path(plan), class: 'btn btn-info btn-lg' %></td>
+          <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg' %></td>
         </tr>
       <% end %>
     </tbody>
@@ -38,5 +37,5 @@
 <%# end %>
 
 <div class = "linkbtn">
-<%= link_to 'CREATE new Teaching Plan', new_plan_path, class: "btn btn-primary" %>
+<%= link_to 'CREATE new Teaching Plan', new_plan_path, class: "btn btn-primary btn-lg" %>
 </div>

@@ -40,31 +40,14 @@
 <%# unless @plan.user_id == current_user.id %>
 <div class ="linkbtn">
   <% if @favorite.present? %>
-    <%= link_to 'DELETE Portfolio', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger btn-xs' %>
+    <%= link_to 'DELETE Portfolio', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
-    <%= link_to 'ADD Portfolio', favorites_path(plan_id: @plan.id), method: :post, class: 'btn btn-basic btn-xs' %>
+    <%= link_to 'ADD Portfolio', favorites_path(plan_id: @plan.id), method: :post, class: 'btn btn-basic' %>
   <% end %>
 <%# end %>
 </div>
 <br>
 <div class ="linkbtn">
-<%= link_to "Back to plan Lists", plans_path, class: "btn btn-primary" %>
+<%= link_to "Back to plan Lists", plans_path, class: "btn btn-primary btn-lg btn-block" %>
 </div>
-
-
- <!--テーブルにする-->
- <!--コメント欄を下につける-->
-<!-- <div class="shows">-->
-<!--  <div class = "row">-->
-
-<!--   <div class="col-md-11">-->
-<!--    <ul class="row">-->
-<!--      <li class="col-offset-md-1 col-md-5">LessonDate: <%#= @plan.lessondate %></li>-->
-<!--      <li class="col-md-6" >Goal: <%#= @plan.goal %></li>-->
-<!--      <li class="col-offset-md-1 col-md-5">Item: <%#= @plan.item %></li>-->
-<!--      <li class="col-md-6" >Content: <%#= @plan.content %></li>-->
-<!--    </ul>-->
-<!--   </div>-->
-<!--  </div>-->
-<!-- </div>-->
-<!--</article>-->
+<br>

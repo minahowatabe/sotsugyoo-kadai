@@ -31,7 +31,7 @@
     </tr>
   </table>
    <div class ="linkbtn">
-    <%= form.submit 'SAVE', class: 'btn btn-primary btn-lg' %>
+    <%= form.submit 'SAVE', class: 'btn btn-primary btn-lg btn-block' %>
    </div>
 <% end %>
 
@@ -42,8 +42,9 @@
   <%= form.hidden_field :content %>
   <%= form.hidden_field :image_cache %>
  
+ <br>
  <div class ="linkbtn">
-   <%= form.submit 'back', class: 'btn btn-primary btn-lg' %>
+   <%= form.submit 'back', class: 'btn btn-danger btn-lg btn-block' %>
  </div>
 </div>
 <% end %>

@@ -19,6 +19,7 @@
     <nav class="thinline">
     </nav>
     
+    <div class="container-fluid">
     <% if user_signed_in? %>
       <%= link_to "CREATE ", new_plan_path, class: 'btn btn-cyan300_flt btn-lg btnsizea' %>
       <%= link_to "LOG OUT ", destroy_user_session_path, method: :delete, class: 'btn btn-amber100_ftg btn-lg btnsizeb'%>
@@ -30,7 +31,7 @@
       <%= link_to "LOG IN", new_user_session_path, class: 'btn btn-amber200_ftg btn-lg btnsizeb' %>
       <%= link_to "TOP", root_path, class: 'btn btn-biuegray200_flt btn-lg btnsizeb' %>
     <% end %>
-    
+    </div>
    <br>
    <div class="noticearea">
     <% if notice %>

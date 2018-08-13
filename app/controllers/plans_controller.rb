@@ -56,10 +56,20 @@ class PlansController < ApplicationController
           disposition: "inline"
       end
     end
+
+    @plan = Plan.find(params[:id])
+    @newcomment = Comment.new(:plan_id => params[:id])
+    @comments = Comment.where(plan_id: params[:id])
+    
+    
+    @plan = Plan.find(params[:id])
     
     @favorite = current_user.favorites.find_by(plan_id: @plan.id)  
   end
-
+  
+  def comment
+  end
+  
   def edit
   end
   
@@ -83,13 +93,17 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
     render :new  if @plan.invalid?  
-
+  end
+  
+  def comment
+    # @plan.user_id = current_user.id
+    @plan = Plan.find(params[:id])
   end
   
   private
   def plan_params
     # params[:plan]
-    params.require(:plan).permit(:lessondate, :goal, :item, :content, :image, :image_cache)
+    params.require(:plan).permit(:lessondate, :goal, :item, :content, :image_cache)
   end
   
   def set_plan

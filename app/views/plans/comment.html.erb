@@ -1,0 +1,57 @@
+<br>
+<h1 class="lists_title container-fluid titles">Teaching Plan</h1>
+   
+   <h3>after comment</h3>
+   <h1><%= @plan.title %></h1>
+   <% @comments.each_with_index do |comment , idx| %>
+    <p>
+      <%= idx + 1 %>. <%= comment.name %> : <%= comment.body %>
+    </p>
+   <% end %>
+
+   <h3>新規書き込み</h3>
+   <%= form_for @newcomment, :url => comment_create_path do |f| %>
+     <p>コメント</p>
+     <p><%= f.text_area :body %></p>
+    <%= f.hidden_field :plan_id %>
+    <%= f.submit %>
+   <% end %>
+
+   <div class = "container">
+    <table class="table">
+    <tr>
+      <th>LessonDate</th>
+      <td><%= @plan.lessondate %></td>
+    </tr>
+    <tr>
+      <th>Item</th>
+      <td><%= simple_format(@plan.item) %></td>
+    </tr>
+    <tr>
+      <th>Goal</th>
+      <td><%= simple_format(@plan.goal) %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td class = "contentfield"><%= simple_format(@plan.content) %></td>
+    </tr>
+    <tr>
+      <th>Image</th>
+      <td><%= image_tag @plan.image %></td>
+    </tr>
+  </table>
+ 
+#  <!--<h3 class="titles">After Commnents</h3>-->
+  <!--  <%#= form_with([@plan, @plan.comments.build]) do |form| %>-->
+  <!--<p>-->
+  <!--  <%#= form.text_field :body %>-->
+  <!--</p>-->
+  <!--<p>-->
+  <!--  <%#= form.submit %>-->
+  <!--</p>-->
+  <!--<%# end %>-->
+
+<br>
+<div class ="linkbtn">
+ <%= link_to "Back to plan Lists", plans_path, class: "btn btn-primary btn-lg btn-block" %>
+</div>

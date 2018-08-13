@@ -15,7 +15,7 @@
     <table class="table">
     <tr>
       <th>LessonDate</th>
-      <td><%= form.date_field :lessondate %></td>
+      <td><%= form.date_field :lessondate, :start_date => Time.now.year.month.day %></td>
     </tr>
     <tr>
       <th>Item</th>

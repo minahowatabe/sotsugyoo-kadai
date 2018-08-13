@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet" />
+
 <br>
 <h1 class="lists_title container-fluid titles">Teaching Plan</h1>
 
@@ -25,17 +27,52 @@
     </tr>
   </table>
  
+ 
 <div class ="linkbtn">
 <%= link_to "PDF",
               plan_path(@plan, format: "pdf"),
               :class => 'btn btn-warning btn-lg' %>
 </div>
 <br>
-<div class ="linkbtn">
-<%= link_to "add AFTER comment",
-              edit_plan_path,
-              :class => 'btn btn-info btn-lg' %>
-</div>
+
+   <h3 class="titles">after comment</h3>
+   <% @comments.each_with_index do |comment , idx| %>
+    <p class="aftercomment">
+      <%= idx + 1 %>. : <%= comment.body %>
+    </p>
+   <% end %>
+
+   <!--<h5>new comment</h5>-->
+   <%= form_for @newcomment, :url => comments_path do |f| %>
+     <p class="titles">new comment</p>
+     <p class="commentarea"><%= f.text_area :body, :size=>"70x3" %></p>
+    <%= f.hidden_field :plan_id %>
+    <div class="commentarea"><%= f.submit 'post' %></div>
+   <% end %>
+
+
+<!--<br>-->
+<!--  <h3 class="titles">After Comments</h3>-->
+<!--  <%# if @plan.comments.any? %>-->
+<!--  <ul>-->
+<!--  <%# @plan.comments.each do |comment| %>-->
+<!--  <li>-->
+<!--    <%#= comment.body %>-->
+<!--    <%#= link_to '[x]',plan_comment_path(@plan,comment), method: :delete, date:{confirm: 'Sure?' } %>-->
+<!--  </li>-->
+<!--  <%# end %>-->
+<!--  </ul>-->
+<!--  <%# end %>-->
+
+  <%#= form_with([@plan, @plan.comments.build]) do |form| %>
+<!--  <p>-->
+    <%#= form.text_field :body %>
+<!--  </p>-->
+<!--  <p>-->
+    <%#= form.submit %>
+<!--  </p>-->
+  <%# end %>
+
 <br>
 <%# unless @plan.user_id == current_user.id %>
 <div class ="linkbtn">

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: "plans#top"
   
+  # post 'comments/create', to: 'comment#create', as: :comment_create
+  resources :comments
+  
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -15,7 +18,13 @@ Rails.application.routes.draw do
   #   get "sign_out", :to => "users/sessions#destroy" 
   # end
   resources :favorites 
+  
   resources :plans do
+    # member do
+    #   get 'comment'
+    # end
+    # resources :comments, only:[:create, :destroy]
+    
     collection do
       post :confirm
     end

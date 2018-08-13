@@ -16,5 +16,8 @@
   
   <dt><strong>Content:</strong></dt>
   <dd><%= simple_format(@plan.content) %></dd>
+  
+  <dt><strong>Image:</strong></dt>
+  <dd><%= pdfkit_image_tag(@plan.image) %></dd>
 
 </dl>

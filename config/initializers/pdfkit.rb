@@ -9,5 +9,6 @@ PDFKit.configure do |config|
     margin_bottom:           "0.25in",
     margin_left:             "1in",
     disable_smart_shrinking: false
-  }
+   }
 end
+

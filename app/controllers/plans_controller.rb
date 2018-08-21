@@ -16,6 +16,7 @@ class PlansController < ApplicationController
     # @plan = current_user.plan.news.build
     if params[:back]  
       @plan = Plan.new
+      @plan.image.retrieve_from_cache! params[:cache][:image]
     else 
       @plan = Plan.new
     end
@@ -62,7 +63,7 @@ class PlansController < ApplicationController
     @comments = Comment.where(plan_id: params[:id])
     
     
-    @plan = Plan.find(params[:id])
+    # @plan = Plan.find(params[:id])
     
     @favorite = current_user.favorites.find_by(plan_id: @plan.id)  
   end
@@ -103,7 +104,7 @@ class PlansController < ApplicationController
   private
   def plan_params
     # params[:plan]
-    params.require(:plan).permit(:lessondate, :goal, :item, :content, :image_cache)
+    params.require(:plan).permit(:lessondate, :goal, :item, :content, :image,:image_cache)
   end
   
   def set_plan

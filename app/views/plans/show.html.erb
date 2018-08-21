@@ -21,12 +21,11 @@
       <th>Content</th>
       <td class = "contentfield"><%= simple_format(@plan.content) %></td>
     </tr>
-    <tr>
-      <th>Image</th>
-      <td><%= image_tag @plan.image %></td>
-    </tr>
   </table>
- 
+    <div>
+      <p>Image</p>
+      <%= image_tag @plan.image %>
+    </div>
  
 <div class ="linkbtn">
 <%= link_to "PDF",

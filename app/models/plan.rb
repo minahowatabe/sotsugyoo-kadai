@@ -1,5 +1,5 @@
 class Plan < ApplicationRecord
-  has_many :comments
+  has_many :comments ,dependent: :destroy 
   mount_uploader :image, ImageUploader
   validates :lessondate, presence: true
   validates :goal, presence: true, length:{in:1..100}

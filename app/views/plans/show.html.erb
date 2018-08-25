@@ -49,29 +49,6 @@
     <div class="commentarea"><%= f.submit 'post' %></div>
    <% end %>
 
-
-<!--<br>-->
-<!--  <h3 class="titles">After Comments</h3>-->
-<!--  <%# if @plan.comments.any? %>-->
-<!--  <ul>-->
-<!--  <%# @plan.comments.each do |comment| %>-->
-<!--  <li>-->
-<!--    <%#= comment.body %>-->
-<!--    <%#= link_to '[x]',plan_comment_path(@plan,comment), method: :delete, date:{confirm: 'Sure?' } %>-->
-<!--  </li>-->
-<!--  <%# end %>-->
-<!--  </ul>-->
-<!--  <%# end %>-->
-
-  <%#= form_with([@plan, @plan.comments.build]) do |form| %>
-<!--  <p>-->
-    <%#= form.text_field :body %>
-<!--  </p>-->
-<!--  <p>-->
-    <%#= form.submit %>
-<!--  </p>-->
-  <%# end %>
-
 <br>
 <%# unless @plan.user_id == current_user.id %>
 <div class ="linkbtn">

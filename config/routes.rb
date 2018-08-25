@@ -4,26 +4,14 @@ Rails.application.routes.draw do
   # post 'comments/create', to: 'comment#create', as: :comment_create
   resources :comments
   
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
-  
    devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
   
-  # devise_scope :user do
-  #   get "sign_in", :to => "users/sessions#new"
-  #   get "sign_out", :to => "users/sessions#destroy" 
-  # end
   resources :favorites 
   
   resources :plans do
-    # member do
-    #   get 'comment'
-    # end
-    # resources :comments, only:[:create, :destroy]
     
     collection do
       post :confirm
@@ -31,4 +19,11 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end
+
+

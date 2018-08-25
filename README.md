@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Teachingport
 
-Things you may want to cover:
+https://immense-savannah-91193.herokuapp.com/
 
-* Ruby version
+Description
 
-* System dependencies
+１．日本語教師が教案（授業案）を作成し、それをストックできる
+２．ストックした教案から選択したものをポートフォリオとして、
+　　特定の人に後悔できる（←現在、実装中）
+　　アプリです。
 
-* Configuration
+Requirement
 
-* Database creation
+・Ruby 2.4.1
+・Rails 5.1.1
+・Postgresql 10.1
+・Bootstrap 4
 
-* Database initialization
+Function
 
-* How to run the test suite
+・教案の作成（授業日・学習項目・目標・展開・イメージ画像）
+・授業後コメントの付与
+・教案の保存・印刷（PDF化）
 
-* Services (job queues, cache servers, search engines, etc.)
+Coming soon
 
-* Deployment instructions
-
-* ...
+・選択した教案のポートフォリオ化（特定の人への公開）
+・授業後コメントを促す自動送信メール

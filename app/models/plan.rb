@@ -7,7 +7,7 @@ class Plan < ApplicationRecord
   validates :content, presence: true
   belongs_to :user
   
-  def self.search(search) #self.でクラスメソッドとしている
+  def self.search(search) # self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
       # Plan.where(['name LIKE ?', "%#{search}%"])
       Plan.where(['item LIKE ?', "%#{search}%"])

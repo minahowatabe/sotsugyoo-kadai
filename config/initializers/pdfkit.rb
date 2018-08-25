@@ -12,3 +12,4 @@ PDFKit.configure do |config|
    }
 end
 
+# disable_smart_shrinking # 縮小を無効にする
